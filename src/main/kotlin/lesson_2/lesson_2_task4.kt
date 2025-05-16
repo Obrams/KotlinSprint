@@ -1,12 +1,14 @@
 package lesson_2
 
+const val PRESENT = 100
+
 fun main () {
     val crystalCountOre = 7
     val ironCountOre = 11
     val bonus = 20
 
-    val bonusOreCrystal = crystalCountOre * bonus/100
-    val bonusOreIron = ironCountOre * bonus/100
+    val bonusOreCrystal = crystalCountOre * bonus/PRESENT
+    val bonusOreIron = ironCountOre * bonus/PRESENT
 
     println("Бафф для добытой кристальной руды: $bonusOreCrystal")
     println("Бафф для добытой железной руды: $bonusOreIron")
