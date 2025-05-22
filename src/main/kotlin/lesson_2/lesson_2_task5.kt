@@ -11,7 +11,7 @@ fun main () {
     val interestRate = 16.7
     val years = 20
     val hardPercent = BigDecimal(sum * (1 + (interestRate / PRESENT)).pow(years.toDouble()))
-    val roundedHardPercent = hardPercent.setScale(3, RoundingMode.HALF_UP)
+    val roundedHardPercent = "%.3f".format(hardPercent)
 
     println("Размер вклада после $years лет и под $interestRate% c cуммой $sum рублей составит: $roundedHardPercent")
 }
