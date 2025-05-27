@@ -1,6 +1,6 @@
 package lesson_3
 
-fun main () {
+fun main() {
     val name = "Татьяна"
     var surname = "Андреева"
     val patronymic = "Сергеевна"
