@@ -1,6 +1,6 @@
 package lesson_3
 
-fun main () {
+fun main() {
     print("Введите число: ")
     val number = readln().toInt()
     val multiplicationTable = """
@@ -14,7 +14,6 @@ fun main () {
         $number * 7 = ${number * 7}
         $number * 8 = ${number * 8}
         $number * 9 = ${number * 9}
-      
     """.trimIndent()
 
     println(multiplicationTable)
