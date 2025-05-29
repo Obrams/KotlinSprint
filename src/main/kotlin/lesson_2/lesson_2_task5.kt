@@ -1,7 +1,6 @@
 package lesson_2
 
 import java.math.BigDecimal
-import java.math.RoundingMode
 import kotlin.math.pow
 
 const val PRESENT = 100
