@@ -1,6 +1,6 @@
 package lesson_4
 
-fun main () {
+fun main() {
     val totalTables = 13
     val bookedToday = 13
     val bookedTomorrow = 9
