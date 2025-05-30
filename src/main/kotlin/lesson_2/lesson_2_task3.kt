@@ -3,7 +3,7 @@ package lesson_2
 const val MINUTE_FIX = 60
 const val HOURS_FIX = 60
 
-fun main () {
+fun main() {
     val hours = 9
     val minute = 39
     val travelTimeMinutes = 457
