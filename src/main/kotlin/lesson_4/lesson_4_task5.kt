@@ -1,0 +1,21 @@
+package lesson_4
+
+const val MIN_PEOPLE = 50
+const val MAX_PEOPLE = 70
+
+fun main() {
+    println("Есть ли повреждения? (true/false): ")
+    val hasDamage = readln().toBoolean()
+    println("Сколько членов экипажа?")
+    val crewCount = readln().toInt()
+    println("Сколько ящиков провизии?")
+    val provisionsBoxes = readln().toInt()
+    println("Погода благоприятна? (true/false):")
+    val isWeatherFavorable = readln().toBoolean()
+
+    val canSail =
+        (!hasDamage && crewCount in MIN_PEOPLE..MAX_PEOPLE && provisionsBoxes > MIN_PEOPLE) ||
+                (hasDamage && crewCount == MAX_PEOPLE && isWeatherFavorable && provisionsBoxes >= MIN_PEOPLE)
+
+    println("Может ли корабль отправиться в плавание? $canSail")
+}
