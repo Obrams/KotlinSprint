@@ -1,5 +1,7 @@
 package lesson_2
 
+const val PRESENT = 100
+
 fun main () {
     val crystalCountOre = 7
     val ironCountOre = 11
