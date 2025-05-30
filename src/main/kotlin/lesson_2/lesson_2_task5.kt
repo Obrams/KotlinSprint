@@ -4,7 +4,7 @@ import java.math.BigDecimal
 import kotlin.math.pow
 
 
-fun main () {
+fun main() {
     val sum = 70000
     val interestRate = 16.7
     val years = 20
