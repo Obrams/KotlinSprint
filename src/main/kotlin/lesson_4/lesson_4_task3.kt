@@ -1,11 +1,11 @@
 package lesson_4
 
-fun main() {
-    val isSunny= true
-    val tentOpen = true
-    val humidity= 20
-    val season= "winter"
+const val IS_SUNNY = true
+const val TENT_OPEN = true
+const val HUMIDITY = 20
+const val SEASON = "winter"
 
-    val conditionsMet = isSunny && tentOpen && (humidity == 20) && (season != "winter")
+fun main() {
+    val conditionsMet = IS_SUNNY && TENT_OPEN && (HUMIDITY == 20) && (SEASON != "winter")
     println("Благоприятные ли условия сейчас для роста бобовых? $conditionsMet")
 }
