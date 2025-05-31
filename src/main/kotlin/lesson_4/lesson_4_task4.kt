@@ -2,14 +2,13 @@ package lesson_4
 
 fun main() {
     val day = 5
-    val isUpperBodyDay = day % 2 == 1
-    val isLowerBodyDay = !isUpperBodyDay
+    val isEvenDay = day % 2 == 0
     println(
         """
-        Упражнения для рук:    $isUpperBodyDay
-        Упражнения для ног:    $isLowerBodyDay
-        Упражнения для спины:  $isLowerBodyDay
-        Упражнения для пресса: $isUpperBodyDay
+        Упражнения для рук:    ${!isEvenDay}
+        Упражнения для ног:    ${isEvenDay}
+        Упражнения для спины:  ${isEvenDay}
+        Упражнения для пресса: ${!isEvenDay}
         """.trimIndent()
     )
 }
