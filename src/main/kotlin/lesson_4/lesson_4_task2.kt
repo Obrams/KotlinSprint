@@ -5,13 +5,11 @@ const val MAX_WEIGHT = 100
 const val MAX_VOLUME = 100
 
 fun main() {
-
     val weight1 = 20
     val volume1 = 80
 
     val weight2 = 50
     val volume2 = 100
-
     println(
         "Груз с весом $weight1 кг и объемом $volume1 л соответствует категории: " +
                 "${weight1 > MIN_WEIGHT && weight1 <= MAX_WEIGHT && volume1 < MAX_VOLUME}"
