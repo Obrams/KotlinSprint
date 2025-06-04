@@ -11,10 +11,12 @@ fun main() {
     val crewCount = readln().toInt()
     println("Сколько ящиков провизии?")
     val provisionsBoxes = readln().toInt()
+    println("Погода благоприятна? (true/false):")
+    val isWeatherFavorable = readln().toBoolean()
 
     val canSail =
         (!hasDamage && crewCount in MIN_PEOPLE..MAX_PEOPLE && provisionsBoxes > MIN_COUNT_PROVISIONS) ||
-                (hasDamage && crewCount == MAX_PEOPLE && provisionsBoxes >= MIN_COUNT_PROVISIONS)
+                (hasDamage && isWeatherFavorable && crewCount == MAX_PEOPLE && provisionsBoxes >= MIN_COUNT_PROVISIONS)
 
     println("Может ли корабль отправиться в плавание? $canSail")
 }
