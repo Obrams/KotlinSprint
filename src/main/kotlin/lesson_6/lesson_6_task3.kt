@@ -2,9 +2,9 @@ package lesson_6
 
 fun main() {
     println("Введите количество секунд, которое нужно засечь:")
-    val unputSecondUser = readln().toInt()
+    val inputSecondUser = readln().toInt()
 
-    var secondsLeft = unputSecondUser
+    var secondsLeft = inputSecondUser
 
     while (secondsLeft > 0) {
         Thread.sleep(1000)
