@@ -9,7 +9,7 @@ fun main() {
     print("Введите интересующий Вас ингредиент:")
     val inputUserIngredient = readln()
 
-    if ((arrayOfIngredients.any { ingredient -> inputUserIngredient.lowercase() == ingredient.lowercase() })) {
+    if (inputUserIngredient.lowercase() in arrayOfIngredients.contentToString().lowercase()) {
         println("Ингредиент $inputUserIngredient в рецепте есть")
     } else {
         println("Такого ингредиента в рецепте нет")
