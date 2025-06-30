@@ -1,13 +1,13 @@
 package lesson_9
 
 fun main() {
-    val arrayOfIngredients = mutableListOf(
+    val listOfIngredients = mutableListOf(
         "Квас", "Картофель", "Вареная колбаса", "Яйца", "Редис", "Огурцы",
         "Сметана", "Зелень", "Соль"
     )
-    println("В рецепте есть следующие ингредиенты: $arrayOfIngredients")
+    println("В рецепте есть следующие ингредиенты: $listOfIngredients")
 
-    arrayOfIngredients.forEach {
+    listOfIngredients.forEach {
         println(it)
     }
 
