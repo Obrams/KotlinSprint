@@ -9,7 +9,7 @@ fun main() {
     val computerRoll = rollDice()
     println("У игрока выпало: $computerRoll")
 
-    val resultWin = whoWin(userRoll, computerRoll)
+    val resultWin = getGameResult(userRoll, computerRoll)
     println(resultWin)
 
 }
@@ -18,7 +18,7 @@ fun rollDice(): Int {
     return (1..6).random()
 }
 
-fun whoWin(userRoll: Int, computerRoll: Int): String {
+fun getGameResult(userRoll: Int, computerRoll: Int): String {
     return if (userRoll < computerRoll) {
         "Победила машина"
     } else if (userRoll > computerRoll) {
