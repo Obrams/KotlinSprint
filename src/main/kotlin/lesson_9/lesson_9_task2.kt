@@ -15,6 +15,5 @@ fun main() {
         println("Теперь в рецепте есть следующие ингредиенты: $listBaseIngredients")
     } else {
         println("Хорошо, готовим только из базовых")
-        return
     }
 }
