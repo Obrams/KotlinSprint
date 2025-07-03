@@ -14,16 +14,12 @@ fun main() {
 
 }
 
-fun rollDice(): Int {
-    return (1..6).random()
-}
+fun rollDice(): Int = (1..6).random()
 
 fun getGameResult(userRoll: Int, computerRoll: Int): String {
-    return if (userRoll < computerRoll) {
-        "Победила машина"
-    } else if (userRoll > computerRoll) {
-        "Победило человечество"
-    } else {
-        "Победила дружба"
+    return when {
+        userRoll < computerRoll -> "Победила машина"
+        userRoll > computerRoll -> "Победило человечество"
+        else -> "Победила дружба"
     }
 }
