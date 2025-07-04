@@ -1,10 +1,10 @@
 package lesson_10
 
 fun main() {
-    println(playRound())
+    playRound()
 }
 
-fun playRound(): String {
+fun playRound() {
     var userWins = 0
     while (true) {
         println("Бросает игрок")
@@ -18,6 +18,10 @@ fun playRound(): String {
         val resultWin = getGameResults(userRoll, computerRoll)
         println(resultWin)
 
+        if (userRoll > computerRoll) {
+            userWins++
+        }
+
         println("Хотите еще?")
         val userAcept = readln().lowercase()
 
@@ -25,11 +29,8 @@ fun playRound(): String {
             break
         }
 
-        if (userRoll > computerRoll) {
-            userWins++
-        }
     }
-    return "Вы выиграли $userWins партий!"
+    println("Вы выиграли $userWins партий!")
 }
 
 fun rollDices(): Int = (1..6).random()
