@@ -2,25 +2,25 @@ package lesson_10
 
 fun main() {
     println("Введите длину пароля:")
-    val inputUserLeghtPassword = readln().toInt()
+    val passwordLength = readln().toInt()
 
-    val password = generatePassword(inputUserLeghtPassword)
+    val password = generatePassword(passwordLength)
     println("Ваш новый пароль: $password")
 
 }
 
-fun generatePassword(inputUserLeghtPassword: Int): String {
+fun generatePassword(passwordLength: Int): String {
 
-    val specialChar = "!\"#\$%&'()*+,-./ "
-    val numbers = ('0'..'9').joinToString("")
+    val specialChar = '!'..'/'
+    val numbers = 0..9
 
     var passwordChar = ""
 
-    for (i in 0 until inputUserLeghtPassword) {
-        if (i % 2 == 0) {
-            passwordChar += numbers.random()
+    for (i in 0 until passwordLength) {
+        passwordChar += if (i % 2 == 0) {
+            numbers.random()
         } else {
-            passwordChar += specialChar.random()
+            specialChar.random()
         }
     }
     return passwordChar
