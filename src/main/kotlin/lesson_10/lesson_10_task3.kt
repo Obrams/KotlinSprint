@@ -11,7 +11,7 @@ fun main() {
 
 fun generatePassword(passwordLength: Int): String {
 
-    val specialChar = '!'..'/'
+    val specialChar = ' '..'/'
     val numbers = 0..9
 
     var passwordChar = ""
