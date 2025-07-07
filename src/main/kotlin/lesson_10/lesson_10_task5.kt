@@ -14,17 +14,17 @@ fun startShoppingSession() {
     println("Введите пароль:")
     val password = readln()
 
-    val token = autorizations(login, password)
+    val token = authorizeUser(login, password)
 
     if (token != null) {
-        val cart = getCartContents(token)
+        val cart = getCartContents()
         println("Ваша корзина: $cart")
     } else {
         println("Неудачная авторизация")
     }
 }
 
-fun autorizations(login: String, password: String): String? {
+fun authorizeUser(login: String, password: String): String? {
     return when {
         login == LOGIN && password == PASSWORD -> generateToken()
         else -> null
@@ -41,12 +41,6 @@ fun generateToken(): String {
     return token
 }
 
-fun getCartContents(token: String?): List<String>? {
-    val basket = listOf("Яблоко", "Хлеб", "Молоко")
-
-    return if (token != null) {
-        basket
-    } else {
-        null
-    }
+fun getCartContents(): List<String>? {
+    return listOf("Яблоко", "Хлеб", "Молоко")
 }
