@@ -41,6 +41,6 @@ fun generateToken(): String {
     return token
 }
 
-fun getCartContents(): List<String>? {
+fun getCartContents(): List<String> {
     return listOf("Яблоко", "Хлеб", "Молоко")
 }
