@@ -12,11 +12,12 @@ class User2(
         println("ID: $id")
         println("Логин: $login")
         println("Email: $email")
-        if (bio == null) {
-            println("Информация о себе не указана")
-        } else {
-            println("Информация о себе: $bio")
-        }
+        println("Информация о себе: ${bio ?: "не указана"}")
+//        if (bio == null) {
+//            println("Информация о себе не указана")
+//        } else {
+//            println("Информация о себе: $bio")
+//        }
     }
 
     fun inputBio() {
@@ -43,7 +44,6 @@ fun main() {
         login = "BigBoss",
         password = "BigBoss228",
         email = "big@mail.ru",
-        bio = "о себе",
     )
     user2.inputBio()
     user2.checkPassword()
