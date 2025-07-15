@@ -13,7 +13,7 @@ class Recipe(
     val title: String,
     val imageUrl: String,
     val ingredients: List<Ingredient>,
-    val methodOfPreparation: String,
+    val methodOfPreparation: List<String>,
 )
 
 class Ingredient(
