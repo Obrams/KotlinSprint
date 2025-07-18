@@ -1,11 +1,50 @@
 package lesson_11
 
+
+fun main() {
+    val myForum = Forum()
+    val userAnna = myForum.createNewUser("Анна")
+    val userBoris = myForum.createNewUser("Борис")
+
+    myForum.createNewMessage(userAnna.userId, "Всем привет! Это мое первое сообщение.")
+    myForum.createNewMessage(userBoris.userId, "Привет, Анна! Рад тебя видеть на форуме.")
+    myForum.createNewMessage(userAnna.userId, "Взаимно! Какие планы на выходные?")
+    myForum.createNewMessage(userBoris.userId, "Думаю пойти в кино. А ты?")
+
+    myForum.printThread()
+}
+
 class Forum {
     private var nextUserId = 1
     private val members = mutableListOf<ForumMember>()
+    private val messages = mutableListOf<ForumMessage>()
+
+    fun printThread() {
+        messages.forEach { message ->
+            val author = members.find { it.userId == message.authorId }
+            if (author != null) {
+                println("${author.userName}: ${message.message}")
+            } else {
+                println("Неизвестный автор: ${message.message}")
+            }
+        }
+
+    }
+
+    fun createNewMessage(authorId: Int, messageText: String) {
+        val userExists = members.any { it.userId == authorId }
+        if (userExists) {
+            val newMessage = ForumMessage.Builder()
+                .authorId(authorId)
+                .message(messageText)
+                .build()
+            messages.add(newMessage)
+        } else {
+            println("Ошибка: Пользователь с ID $authorId не найден. Сообщение не создано.")
+        }
+    }
 
     fun createNewUser(userName: String): ForumMember {
-        val newId = nextUserId
         val newUser = ForumMember.Builder()
             .userId(nextUserId)
             .userName(userName)
