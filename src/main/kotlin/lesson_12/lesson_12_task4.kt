@@ -1,10 +1,10 @@
 package lesson_12
 
-const val CELSIUS = 273
+const val CELSIUSS = 273
 
 class TemperatureV4(_dayTemperature: Int, _nightTemperature: Int, _precipitationDuringDay: Boolean) {
-    var dayTemperature = _dayTemperature - CELSIUS
-    var nightTemperature = _nightTemperature - CELSIUS
+    var dayTemperature = _dayTemperature - CELSIUSS
+    var nightTemperature = _nightTemperature - CELSIUSS
     var precipitationDuringDay = _precipitationDuringDay
 
     init {
