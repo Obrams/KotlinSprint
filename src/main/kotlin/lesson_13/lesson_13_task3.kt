@@ -45,7 +45,9 @@ fun main() {
         c.printContactInfo(c.name, c.phone, c.company)
     }
 
-    val companies = contacts.mapNotNull { it.company }.toSet()
-
+    val companies = contacts
+        .map { it.company }
+        .filter { it != null && it != "null" }
+        .toSet()
     println(companies)
 }
