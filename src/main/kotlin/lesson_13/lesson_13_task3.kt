@@ -5,7 +5,7 @@ class Contacts(
     val phone: Long,
     val company: String? = null
 ) {
-    fun printContactInfo(name: String, phone: Long, company: String?) {
+    fun printContactInfo() {
         println(
             "Имя: $name\n" +
                     "Номер: $phone\n" +
@@ -42,12 +42,11 @@ fun main() {
     )
 
     contacts.forEach { c ->
-        c.printContactInfo(c.name, c.phone, c.company)
+        c.printContactInfo()
     }
 
     val companies = contacts
-        .map { it.company }
-        .filter { it != null && it != "null" }
+        .mapNotNull { it.company }
         .toSet()
     println(companies)
 }
