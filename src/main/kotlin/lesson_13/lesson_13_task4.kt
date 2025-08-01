@@ -2,7 +2,7 @@ package lesson_13
 
 class PhoneAdress(
     val name: String,
-    val phone: Long,
+    val phone: Long?,
     val company: String? = null
 ) {
     fun printContactInfo() {
@@ -17,34 +17,26 @@ class PhoneAdress(
 fun main() {
     val contacts = mutableListOf<PhoneAdress>()
 
-    println("Введите имя:")
-    val name = readln()
 
-    println("Введите номер телефона:")
-    val phoneInput = readln().toLongOrNull()
+    do {
+        println("Введите имя:")
+        val name = readln()
 
-    if (phoneInput == null) {
-        println("Номер телефона не введён или введён неверно")
-    } else {
-        println("Введите компанию:")
-        val companyInput = readln().ifBlank { null }
+        println("Введите номер телефона:")
+        val phoneInput = readln().toLongOrNull()
 
-        val contact = PhoneAdress(name, phoneInput, companyInput)
-        contacts.add(contact)
-    }
+        if (phoneInput == null) {
+            println("Номер телефона не введён или введён неверно")
+        } else {
+            println("Введите компанию:")
+            val companyInput = readln().ifBlank { null }
 
-    contacts.add(
-        PhoneAdress(name = "Дмитрий", phone = 89123456789)
-    )
-    contacts.add(
-        PhoneAdress(name = "Вячеслав", phone = 89123456789, company = "ОЗОН")
-    )
-    contacts.add(
-        PhoneAdress(name = "Артём", phone = 89123456789, company = "Яндекс")
-    )
-    contacts.add(
-        PhoneAdress(name = "Гриша", phone = 89123456789, company = "null")
-    )
+            val contact = PhoneAdress(name, phoneInput, companyInput)
+            contacts.add(contact)
+        }
+        println("Добавить ещё контакт? (да/нет)")
+        val answer = readln()
+    } while (answer.lowercase() == "да")
 
     contacts.forEach { it.printContactInfo() }
 
