@@ -21,17 +21,15 @@ fun main() {
     val name = readln()
 
     println("Введите номер телефона:")
-    val phoneInput = readln()
-    val phone = phoneInput.toLongOrNull()
+    val phoneInput = readln().toLongOrNull()
 
-    if (phone == null) {
+    if (phoneInput == null) {
         println("Номер телефона не введён или введён неверно")
     } else {
         println("Введите компанию:")
-        val companyInput = readln()
-        val company = companyInput.ifBlank { null }
+        val companyInput = readln().ifBlank { null }
 
-        val contact = PhoneAdress(name, phone, company)
+        val contact = PhoneAdress(name, phoneInput, companyInput)
         contacts.add(contact)
     }
 
