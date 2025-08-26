@@ -50,7 +50,6 @@ class Icebreaker2(
 }
 
 
-
 fun main() {
     val cargo1 = Cargo2("cargo1")
     cargo1.load()
