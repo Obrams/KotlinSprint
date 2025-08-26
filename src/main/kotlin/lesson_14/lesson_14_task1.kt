@@ -1,32 +1,28 @@
 package lesson_14
 
+open class Liner(
+    val name: String,
+    val speed: Int = 500,
+    val loadCapacity: Int = 700,
+    val capacity: Int = 1500,
+)
 
 class Cargo(
     name: String,
     speed: Int = 400,
     loadCapacity: Int = 2000,
     capacity: Int = 500,
-) : Liner(name, speed, loadCapacity, capacity) {}
+) : Liner(name, speed, loadCapacity, capacity)
 
 class Icebreaker(
     name: String,
     speed: Int = 300,
     loadCapacity: Int = 500,
     capacity: Int = 400,
-
     ) : Liner(name, speed, loadCapacity, capacity) {
     fun chopIce() {
         println("$name колит лёд")
     }
-}
-
-open class Liner(
-    val name: String,
-    val speed: Int = 500,
-    val loadCapacity: Int = 700,
-    val capacity: Int = 1500,
-) {
-
 }
 
 fun main() {
