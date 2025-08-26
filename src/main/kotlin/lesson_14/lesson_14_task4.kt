@@ -1,55 +1,41 @@
 package lesson_14
 
-/*
-В компьютерной игре существуют планеты. У некоторых из них есть спутники.
-
-Планеты и спутники могут иметь атмосферу и могут быть пригодными для высадки.
-
-Создай родительский класс, описывающий небесные тела, и подклассы, описывающие планеты и спутники.
-
-- планета должна хранить список спутников.
-
-Создай планету с двумя спутниками и выведи в консоль название планеты и названия всех ее спутников.
- */
-
-open class CelestialBodies(
+open class CelestialBody(
     val name: String,
     val presenceAtmosphere: Boolean,
     val suitabilityLanding: Boolean
-) {
+)
 
-}
-
-open class Planets(
+open class Planet(
     name: String,
     presenceAtmosphere: Boolean,
     suitabilityLanding: Boolean,
-    val satellites: MutableList<Satellites> = mutableListOf()
-) : CelestialBodies(name, presenceAtmosphere, suitabilityLanding) {
-    fun addSatellitesInPlanet(nameSatellites: Satellites) {
-        satellites.add(nameSatellites)
+    val satellites: MutableList<Satellite> = mutableListOf()
+) : CelestialBody(name, presenceAtmosphere, suitabilityLanding) {
+    fun addSatellite(satellite: Satellite) {
+        satellites.add(satellite)
+    }
+
+    fun printInfo() {
+        println(name)
+        satellites.forEach { println(it.name) }
     }
 }
 
-class Satellites(
+class Satellite(
     name: String,
     presenceAtmosphere: Boolean,
     suitabilityLanding: Boolean,
-) : CelestialBodies(name, presenceAtmosphere, suitabilityLanding) {
-
-}
+) : CelestialBody(name, presenceAtmosphere, suitabilityLanding)
 
 fun main() {
-    val moon1 = Satellites("Луна-1", true, true)
-    val moon2 = Satellites("Луна-2", false, false)
+    val moon1 = Satellite("Луна-1", true, true)
+    val moon2 = Satellite("Луна-2", false, false)
 
-    val planet = Planets("Венера", false, true)
+    val planet = Planet("Венера", false, true)
 
-    planet.addSatellitesInPlanet(moon1)
-    planet.addSatellitesInPlanet(moon2)
+    planet.addSatellite(moon1)
+    planet.addSatellite(moon2)
 
-    println(planet.name)
-    for (satellite in planet.satellites) {
-        println(satellite.name)
-    }
+    planet.printInfo()
 }
