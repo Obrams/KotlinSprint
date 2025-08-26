@@ -1,45 +1,49 @@
 package lesson_14
 
 open class Liner(
-    val name: String,
-    val speed: Int = 500,
-    val loadCapacity: Int = 700,
-    val capacity: Int = 1500,
+    open val name: String,
+    open val speed: Int = 500,
+    open val loadCapacity: Int = 700,
+    open val capacity: Int = 1500,
 )
 
 class Cargo(
-    name: String,
-    speed: Int = 400,
-    loadCapacity: Int = 2000,
-    capacity: Int = 500,
-) : Liner(name, speed, loadCapacity, capacity)
+    override val name: String
+) : Liner(
+    name = name,
+    speed = 15,
+    loadCapacity = 500,
+    capacity = 2000
+)
 
 class Icebreaker(
-    name: String,
-    speed: Int = 300,
-    loadCapacity: Int = 500,
-    capacity: Int = 400,
-    ) : Liner(name, speed, loadCapacity, capacity) {
+    override val name: String
+) : Liner(
+    name = name,
+    speed = 10,
+    loadCapacity = 300,
+    capacity = 300
+) {
     fun chopIce() {
-        println("$name колит лёд")
+        println("$name колет лёд")
     }
 }
 
 fun main() {
-    val cargo1 = Cargo("cargo1")
+    val cargo1 = Cargo("Cargo")
     println("Скорость: ${cargo1.speed}")
     println("Вместительность: ${cargo1.capacity}")
     println("Грузоподъёмность: ${cargo1.loadCapacity}")
     println()
 
-    val icebreaker1 = Icebreaker("icebreaker1")
+    val icebreaker1 = Icebreaker("Icebreaker")
     println("Скорость: ${icebreaker1.speed}")
     println("Вместительность: ${icebreaker1.capacity}")
     println("Грузоподъёмность: ${icebreaker1.loadCapacity}")
     icebreaker1.chopIce()
     println()
 
-    val liner1 = Liner("liner1")
+    val liner1 = Liner("Liner")
     println("Скорость: ${liner1.speed}")
     println("Вместительность: ${liner1.capacity}")
     println("Грузоподъёмность: ${liner1.loadCapacity}")
