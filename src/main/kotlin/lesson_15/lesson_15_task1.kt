@@ -1,29 +1,27 @@
 package lesson_15
 
-interface IFlyable{
-    fun flying() {
-        println("Лечу")
-    }
+interface Flyable {
+    fun flying()
 }
 
-interface ISwimmable{
-    fun swimming() {
-        println("Плыву")
-    }
+interface Swimmable {
+    fun swimming()
 }
 
-class Karas(): ISwimmable {
+class Karas() : Swimmable {
     override fun swimming() {
-       println("Карась плывет медленно")
+        println("Карась плывет медленно")
     }
 
 }
-class Chaika():IFlyable {
+
+class Chaika() : Flyable {
     override fun flying() {
         println("Чайка летит высоко")
     }
 }
-class Utka():IFlyable,ISwimmable {
+
+class Utka() : Flyable, Swimmable {
     override fun swimming() {
         println("Утка плывет по воде")
     }
