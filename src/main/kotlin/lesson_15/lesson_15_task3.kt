@@ -20,7 +20,10 @@ class Admin(
     }
 
     fun deleteMessage(messageId: Int) {
-        println("[$userName] удаляет сообщени")
+        println("[$userName] удаляет сообщение")
+    }
+    fun deleteUser(userId: Int) {
+        println("[$userName] удаляет пользователя с $userId")
     }
 }
 
@@ -29,11 +32,11 @@ class RegularUser(
     override val userName: String,
 ) : User() {
     override fun writeMessage() {
-        println("[$userName] читает форум")
+        println("[$userName] пишет сообщение")
     }
 
     override fun readMessage() {
-        println("[$userName] пишет сообщение")
+        println("[$userName] читает форум")
     }
 }
 
@@ -42,6 +45,7 @@ fun main() {
         readMessage()
         writeMessage()
         deleteMessage(10)
+        deleteUser(11)
     }
     RegularUser(2, "Nikita").apply {
         readMessage()
