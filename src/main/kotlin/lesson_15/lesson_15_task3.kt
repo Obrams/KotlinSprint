@@ -1,16 +1,5 @@
 package lesson_15
 
-/*
-На форуме есть два типа пользователей – обычные пользователи и администраторы.
-
-Пользователи могут читать форум и писать сообщения.
-Администраторы дополнительно могут удалять сообщения и пользователей.
-
-Опиши классы для сущностей пользователей и администраторов, используя абстрактный класс.
-У абстрактного класса должны быть соответствующие общие поля и методы.
-Действия на форуме отобрази сообщениями в консоль.
- */
-
 abstract class User {
     abstract val userId: Int
     abstract val userName: String
@@ -30,16 +19,32 @@ class Admin(
         println("[$userName] пишет сообщение")
     }
 
-    fun deleteMessage() {
+    fun deleteMessage(messageId: Int) {
         println("[$userName] удаляет сообщени")
     }
 }
 
-fun main() {
-    Admin(1, "Alice").apply {
-        readMessage()
-        writeMessage()
-        deleteMessage()
+class RegularUser(
+    override val userId: Int,
+    override val userName: String,
+) : User() {
+    override fun writeMessage() {
+        println("[$userName] читает форум")
     }
 
+    override fun readMessage() {
+        println("[$userName] пишет сообщение")
+    }
+}
+
+fun main() {
+    Admin(1, "Alice Admin").apply {
+        readMessage()
+        writeMessage()
+        deleteMessage(10)
+    }
+    RegularUser(2, "Nikita").apply {
+        readMessage()
+        writeMessage()
+    }
 }
