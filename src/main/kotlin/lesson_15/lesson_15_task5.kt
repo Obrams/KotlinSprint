@@ -1,5 +1,7 @@
 package lesson_15
 
+import kotlin.collections.minusAssign
+
 const val MAXPASSENGERSCAR = 3
 const val MAXPASSENGERSTRUCK = 1
 const val MAXWEIGHT = 2
@@ -50,12 +52,13 @@ class Car() : Movable, PassengerCarrier {
 class Truck() : Movable, PassengerCarrier, CargoCarrier {
     override var maxCargo = MAXWEIGHT
     override var currentCargo = 0
-    override val maxPassengersTruck = MAXPASSENGERSTRUCK
-    override var currentPassengers = 0
+
     override fun drive() {
         println("Едем")
     }
 
+    override fun loadPassenger(count: Int) {
+    }
     override fun loadCargo(amount: Int) {
         when {
             amount <= 0 -> return
@@ -63,12 +66,13 @@ class Truck() : Movable, PassengerCarrier, CargoCarrier {
             else -> currentCargo = maxCargo
         }
     }
-}
-
-
 
     override fun unloadCargo(amount: Int) {
+        when {
+            amount <= 0 -> return
+            currentCargo - amount >= 0 -> currentCargo -= amount
+            else -> currentCargo = 0
+        }
 
     }
-
 }
