@@ -1,8 +1,8 @@
 package lesson_15
 
 open class Product(
-    open val productName: String,
-    open val countStock: Int,
+    val productName: String,
+    val countStock: Int,
 )
 
 interface Searchable {
@@ -12,7 +12,7 @@ interface Searchable {
 class Instrument(
     productName: String,
     countStock: Int,
-): Searchable, Product(productName, countStock) {
+) : Searchable, Product(productName, countStock) {
     override fun searchForAccessories() {
         println("Выполняется поиск аксессуаров для $productName")
     }
@@ -21,9 +21,7 @@ class Instrument(
 class Accessory(
     productName: String,
     countStock: Int,
-) : Product(productName, countStock) {
-
-}
+) : Product(productName, countStock)
 
 fun main() {
     val guitar = Instrument("Гитара", 1)
