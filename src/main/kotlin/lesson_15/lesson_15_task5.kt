@@ -9,34 +9,34 @@ interface Movable {
 }
 
 interface PassengerCarrier {
+    var maxPassengers: Int
+    var currentPassengers: Int
+
     fun loadPassenger(count: Int) {
-        val target = (currentPassengers + count).coerceIn(0, maxPassengers)
+        val target = (currentPassengers + count).coerceAtLeast(0)
         currentPassengers = target
 
     }
 
     fun unloadPassenger(count: Int) {
-        val target = (currentPassengers - count).coerceIn(0, maxPassengers)
+        val target = (currentPassengers - count).coerceAtLeast(0)
         currentPassengers = target
     }
-
-    var maxPassengers: Int
-    var currentPassengers: Int
 }
 
 interface CargoCarrier {
+    var maxCargo: Int
+    var currentCargo: Int
+
     fun loadCargo(amount: Int) {
-        val target = (currentCargo + amount).coerceIn(0, maxCargo)
+        val target = (currentCargo + amount).coerceAtLeast(0)
         currentCargo = target
     }
 
     fun unloadCargo(amount: Int) {
-        val target = (currentCargo - amount).coerceIn(0, maxCargo)
+        val target = (currentCargo - amount).coerceAtLeast(0)
         currentCargo = target
     }
-
-    var maxCargo: Int
-    var currentCargo: Int
 }
 
 class Car : Movable, PassengerCarrier {
@@ -44,7 +44,7 @@ class Car : Movable, PassengerCarrier {
     override var currentPassengers = 0
 
     override fun drive() {
-        println("Едем")
+        println("Едем в легковой машине")
     }
 }
 
@@ -55,7 +55,7 @@ class Truck : Movable, PassengerCarrier, CargoCarrier {
     override var currentCargo = 0
 
     override fun drive() {
-        println("Едем")
+        println("Едем в грузовой машине")
     }
 }
 
