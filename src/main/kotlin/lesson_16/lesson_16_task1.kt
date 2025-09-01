@@ -1,9 +1,7 @@
 package lesson_16
 
-import kotlin.random.Random
-
 class Cube() {
-    private val randomNumber = Random.nextInt(1, 7)
+    private val randomNumber = (1..6).random()
 
     fun checkRandomNumber() {
         println("Случайное число: $randomNumber")
