@@ -13,13 +13,13 @@ interface PassengerCarrier {
     var currentPassengers: Int
 
     fun loadPassenger(count: Int) {
-        val target = (currentPassengers + count).coerceAtLeast(maxPassengers)
+        val target = (currentPassengers + count).coerceAtMost(maxPassengers)
         currentPassengers = target
 
     }
 
     fun unloadPassenger(count: Int) {
-        val target = (currentPassengers - count).coerceAtLeast(maxPassengers)
+        val target = (currentPassengers - count).coerceAtLeast(0)
         currentPassengers = target
     }
 }
@@ -29,12 +29,12 @@ interface CargoCarrier {
     var currentCargo: Int
 
     fun loadCargo(amount: Int) {
-        val target = (currentCargo + amount).coerceAtLeast(maxCargo)
+        val target = (currentCargo + amount).coerceAtMost(maxCargo)
         currentCargo = target
     }
 
     fun unloadCargo(amount: Int) {
-        val target = (currentCargo - amount).coerceAtLeast(maxCargo)
+        val target = (currentCargo - amount).coerceAtLeast(0)
         currentCargo = target
     }
 }
