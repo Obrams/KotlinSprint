@@ -1,21 +1,17 @@
 package lesson_17
 
-import lesson_17.Package.Companion.countPackages
+var totalMoves: Int = 0
+    private set
 
 class Package(
     initialLocation: String,
     val parcelNumber: Long
 ) {
-    companion object {
-        var countPackages: Int = 0
-            private set
-    }
-
     var currentLocation = initialLocation
         set(value) {
             if (value != field) {
                 field = value
-                countPackages++
+                totalMoves++  // инкрементим глобальный счетчик
             }
         }
 }
@@ -29,5 +25,5 @@ fun main() {
     package2.currentLocation = "Сочи"
     package2.currentLocation = "Калуга"
 
-    println("Общее количество перемещений: $countPackages")
+    println("Общее количество перемещений: $totalMoves")
 }
