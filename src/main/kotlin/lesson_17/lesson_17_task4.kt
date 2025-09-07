@@ -1,20 +1,25 @@
 package lesson_17
 
-var totalMoves: Int = 0
-    private set
 
 class Package(
     initialLocation: String,
-    val parcelNumber: Long
+    val parcelNumber: Long,
+    private var totalMoves: Int = 0
 ) {
+
     var currentLocation = initialLocation
         set(value) {
             if (value != field) {
                 field = value
-                totalMoves++  // инкрементим глобальный счетчик
+                totalMoves++
             }
         }
+
+    fun getMoveCount(): Int {
+        return totalMoves
+    }
 }
+
 
 fun main() {
     val package1 = Package("Курск", 32423432432)
@@ -25,5 +30,6 @@ fun main() {
     package2.currentLocation = "Сочи"
     package2.currentLocation = "Калуга"
 
-    println("Общее количество перемещений: $totalMoves")
+    println("Перемещений у посылки 1: ${package1.getMoveCount()}")
+    println("Перемещений у посылки 2: ${package2.getMoveCount()}")
 }
