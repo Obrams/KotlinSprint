@@ -5,6 +5,7 @@ open class Animal(
     val name: String
 ) {
     open fun eat() {}
+    open fun sleep() {}
 }
 
 class Fox(name: String) : Animal(name) {
