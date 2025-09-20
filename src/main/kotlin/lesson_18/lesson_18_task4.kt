@@ -2,9 +2,9 @@ package lesson_18
 
 
 open class Box(
-    private var length: Int = 0,
-    private val width: Int = 0,
-    private val height: Int = 0
+    open var length: Int = 0,
+    open val width: Int = 0,
+    open val height: Int = 0
 ) {
     open fun getSurfaceArea(): Int {
         return 0
