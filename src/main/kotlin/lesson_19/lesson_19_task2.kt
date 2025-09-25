@@ -4,7 +4,11 @@ package lesson_19
 enum class CategoryType(val nameCategory: String) {
     CLOTHING("Одежда"),
     STATIONERY("Канцелярские товары"),
-    SUNDRY("Разное"),
+    SUNDRY("Разное");
+
+    fun getDisplayName(): String {
+        return nameCategory
+    }
 }
 
 class Product(
@@ -16,7 +20,7 @@ class Product(
         println(
             "Название: $name\n" +
                     "Id: $productId\n" +
-                    "Категория: ${categoryType.nameCategory}"
+                    "Категория: ${categoryType.getDisplayName()}"
         )
     }
 }
